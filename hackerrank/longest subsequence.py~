@@ -1,0 +1,33 @@
+
+def IncreasingSubSeq(Seqlength,Seq):  
+   TempArray = [0]*SeqLength
+   Index = 0
+   TempArray[0]=Seq[0]
+   for i in range(1,SeqLength):
+       if(Seq[i]>TempArray[Index]):
+           Index = Index+1
+           TempArray[Index] = Seq[i]
+       elif(Seq[i]<TempArray[0]):       
+           TempArray[0] = Seq[i]    
+       else:            
+           minimum= 0
+           maximum= Index
+           while(End>=Start):
+               center = (maximum+minimum)//2
+               if(TempArray[center]<Seq[i] and TempArray[center+1]>=Seq[i]):
+                   TempArray[center+1]=Seq[i]
+                   break
+               elif(TempArray[center]<Seq[i]):
+                   minimum=center+1
+               else:
+                   maximum=center-1        
+   return (Index+1) 
+
+SeqLength = int(input())
+Seq=[0]*SeqLength
+for i in range(SeqLength):
+   Seq[i] = int(input())           
+result=IncreasingSubSeq(SeqLength,Seq)        
+print result
+
+            
